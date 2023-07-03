@@ -6,18 +6,18 @@ const MainSchema = new Schema({
     name:{
         type: String,
         trim: true,
-        max: 20 [true, "El nombre no debe superar los 20 caracteres"]
+        maxLength: 20 [true, "El nombre no debe superar los 20 caracteres"]
     },
     surname:{
         type: String,
         trim: true,
-        max: 20 [true, "El apellido no debe superar los 20 caracteres"]
+        maxLength: 20 [true, "El apellido no debe superar los 20 caracteres"]
     },
     user:{
         type: String,
         unique: true,
         required: [true,"El campo usuario es obligatorio"],
-        max: 20 [true, "El apellido no debe superar los 20 caracteres"]
+        maxLength: 20 [true, "El apellido no debe superar los 20 caracteres"]
     },
     password:{
         type: String,
