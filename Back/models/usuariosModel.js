@@ -1,6 +1,7 @@
 const mongoose = require('../bin/mongodb')
 const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
+var validate = require('mongoose-validator');
 
 var nameValidator = [
     validate({
