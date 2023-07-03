@@ -29,6 +29,18 @@ var nameValidator = [
     })
   ];
 
+  var passwordValidator = [
+    validate({
+      validator: 'isLength',
+      arguments: [6, 20],
+      message: 'Password should be between 6 and 20 characters'
+    }),
+    validate({
+        validator: 'isAlphanumeric',
+        message: 'Name should contain alpha-numeric characters only'
+      })
+  ];
+
 const MainSchema = new Schema({
     name:{
         type: String,
@@ -48,7 +60,8 @@ const MainSchema = new Schema({
     },
     password:{
         type: String,
-        required: true
+        required: true,
+        validate:passwordValidator
     }
 })
 MainSchema.pre('save',function(next){
