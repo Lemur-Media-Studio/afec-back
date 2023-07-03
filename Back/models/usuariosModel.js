@@ -21,11 +21,6 @@ var nameValidator = [
       validator: 'isLength',
       arguments: [3, 20],
       message: 'Name should be between 3 and 50 characters'
-    }),
-    validate({
-      validator: 'isAlphanumeric',
-      passIfEmpty: true,
-      message: 'Name should contain alpha-numeric characters only'
     })
   ];
 
@@ -34,11 +29,7 @@ var nameValidator = [
       validator: 'isLength',
       arguments: [6, 20],
       message: 'Password should be between 6 and 20 characters'
-    }),
-    validate({
-        validator: 'isAlphanumeric',
-        message: 'Name should contain alpha-numeric characters only'
-      })
+    })
   ];
 
 const MainSchema = new Schema({
