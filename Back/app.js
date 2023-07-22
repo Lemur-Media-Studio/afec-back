@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 var productosRouter = require('./routes/productos');
 var usuariosRouter = require('./routes/usuarios');
 var ventasRouter = require('./routes/ventas');
+var etiquetasRouter = require('./routes/etiquetas')
 //2- require del router
 var categoriasRouter = require('./routes/categorias');
 
@@ -45,6 +46,7 @@ app.options("/*", function(req, res, next){
 
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/etiquetas',etiquetasRouter);
 app.use('/answers',productosRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/ventas',validateUser, ventasRouter);

@@ -27,7 +27,7 @@ var nameValidator = [
   var passwordValidator = [
     validate({
       validator: 'isLength',
-      arguments: [6, 20],
+      arguments: [8, 12],
       message: 'Password should be between 6 and 20 characters'
     })
   ];
