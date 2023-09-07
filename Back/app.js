@@ -50,11 +50,11 @@ app.use('/users', usersRouter);
 app.use('/etiquetas',etiquetasRouter);
 app.use('/answers',productosRouter);
 app.use('/usuarios', usuariosRouter);
-app.use('/ventas',validateUser, ventasRouter);
+app.use('/ventas', ventasRouter);
 
 //1- agregar el app user
 app.use('/categorias', categoriasRouter);
-
+/*
 function validateUser(req,res,next){
   console.log(req.app.get('secretKey'))
   jwt.verify(req.headers['x-access-token'],req.app.get('secretKey'),function(err,decoded){
@@ -73,7 +73,7 @@ app.validateUser = validateUser;
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
+*/
 /** ERROR HANDLER **/
 // error handler
 app.use(function(err, req, res, next) {
