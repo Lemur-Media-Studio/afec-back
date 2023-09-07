@@ -7,6 +7,7 @@ mongoose.connect(process.env.BD_HOST, { useNewUrlParser: true }, function(error)
       throw error; 
    }else{
       console.log('Conectado a MongoDB');
+
    }
 });
 mongoosePaginate.paginate.options = { 
