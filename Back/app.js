@@ -51,7 +51,7 @@ app.use('/etiquetas',etiquetasRouter);
 app.use('/answers',productosRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/ventas',validateUser, ventasRouter);
-app.use('/profile',validateUser, profileRouter);
+
 //1- agregar el app user
 app.use('/categorias', categoriasRouter);
 

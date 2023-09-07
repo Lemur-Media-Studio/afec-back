@@ -40,5 +40,11 @@ module.exports = {
 
         
         
+    },
+
+    logout: async function(req, res, next){
+        res.cookie("token", "", {expires: new Date(0),});
+        return res.sendStatus(200)
+
     }    
 }
