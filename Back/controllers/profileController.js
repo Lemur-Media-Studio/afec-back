@@ -1,8 +1,8 @@
 var ventasModel = require("../models/ventasModel")
-var productosModel = require("../models/productosModel")
+var etiquetasModel = require("../models/etiquetasModel")
 module.exports = {
     getAll: async function(req, res, next) {
-        let productos = await productosModel.find({})
+        let productos = await etiquetasModel.find({})
         await categoriesModel.populate(productos,{path:'category'})
         console.log(productos)
         res.status(200).json(productos)
