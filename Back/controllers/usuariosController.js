@@ -48,10 +48,6 @@ module.exports = {
 
     },
 
-    profile: async function (req, res, next) {
-        res.send('profile')
-    },
-
     authRequired: async function (req, res, next) {
         const {token} = req.cookies
         if (!token) return res.status(401).json({message: "no token"})
@@ -66,5 +62,19 @@ module.exports = {
             }
           })
         next()
+    },
+
+    profile: async function (req, res, next) {
+        const userFound = User.findById(req.user.id)
+        if (!userFound) return res.status(400).json({message:"user not found"})
+
+        return res.json({
+            id: userFound._id,
+            name:userFound.name,
+            surname:userFound.surname,
+            user:userFound.user,
+            password: userFound.password
+        })
     }
+
 }
