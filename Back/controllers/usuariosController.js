@@ -53,8 +53,8 @@ module.exports = {
     },
 
     authRequired: async function (req, res, next) {
-        const cookies = req.cookies
-        console.log(cookies)
+        const {token} = req.cookies
+        if (!token) return res.status(401).json({message: "no token"})
         next()
     }
 }
