@@ -19,14 +19,14 @@ module.exports = {
     login: async function(req, res, next) {
         //Consulto por usuario
         let usuario = await mainModel.findOne({user:req.body.user})
-        console.log(usuario._id)
+    
 
         if(usuario){
             //Validar el password
             if(bcrypt.compareSync(req.body.password,usuario.password)){
                 //Password valido , genero token
                 const token = jwt.sign({usuario:usuario},req.app.get('secretKey'),{expiresIn:'1h'})
-                res.status(201).json({token:token})
+                res.status(201).json({token:token, usuario: usuario})
 
             }else{
                 //Password invalido
