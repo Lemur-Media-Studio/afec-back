@@ -65,7 +65,7 @@ module.exports = {
     },
 
     profile: async function async (req, res, next) {
-        const userFound = await User.findById(req.user.id)
+        const userFound = await mainModel.findById(req.user.id)
         if (!userFound) return res.status(400).json({message:"user not found"})
 
         return res.json({
