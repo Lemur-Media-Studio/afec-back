@@ -26,7 +26,7 @@ module.exports = {
             if(bcrypt.compareSync(req.body.password,usuario.password)){
                 //Password valido , genero token
                 const token = jwt.sign({usuario:usuario},req.app.get('secretKey'),{expiresIn:'1h'})
-                res.status(201).json({token:token, usuario: usuario})
+                res.status(201).json({token:token, usuario: usuario._id})
 
             }else{
                 //Password invalido
