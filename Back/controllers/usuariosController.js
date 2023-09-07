@@ -27,7 +27,7 @@ module.exports = {
                 //Password valido , genero token
                 const token = jwt.sign({usuario:usuario},req.app.get('secretKey'),{expiresIn:'1h'})
                 res.status(201).json({token:token})
-                res.cookie('token', token)
+                res.cookie("token", token)
 
 
             }else{
@@ -43,7 +43,7 @@ module.exports = {
         
     }, 
     logout: async function(req,res,next){
-        res.cookie('token', "",{expires: new Date(0)})
+        res.cookie("token", "",{expires: new Date(0)})
         return res.status(200)
         
 
