@@ -1,4 +1,4 @@
-const authRequired = (req, res, next)=> {
+export const authRequired = (req, res, next)=> {
     console.log("validate token")
     next()
 
