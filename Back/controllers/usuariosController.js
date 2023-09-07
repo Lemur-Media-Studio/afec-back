@@ -50,5 +50,10 @@ module.exports = {
 
     profile: async function (req, res, next) {
         res.send('profile')
+    },
+
+    authRequired: async function (req, res, next) {
+        console.log("auth required token sucess")
+        next()
     }
 }
