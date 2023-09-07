@@ -17,7 +17,7 @@ module.exports = {
         })*/
         let etiquetas = await etiquetasModel.find()
         .populate('category')
-        console.log(etiquetas)
+        //console.log(etiquetas)
         res.status(200).json({data:etiquetas})
       },
       getByCategoria: async function(req, res, next) {
@@ -34,7 +34,7 @@ module.exports = {
     
     getDestados: async function(req, res, next) {
         let etiquetas = await etiquetasModel.find({'destacado':1})
-        console.log(etiquetas)
+        //console.log(etiquetas)
         res.status(200).json(etiquetas)
     },
     getById: async function(req, res, next) {
