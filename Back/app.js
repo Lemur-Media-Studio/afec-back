@@ -12,6 +12,7 @@ var productosRouter = require('./routes/productos');
 var usuariosRouter = require('./routes/usuarios');
 var ventasRouter = require('./routes/ventas');
 var etiquetasRouter = require('./routes/etiquetas')
+var profileRouter = require('./routes/profile')
 //2- require del router
 var categoriasRouter = require('./routes/categorias');
 
