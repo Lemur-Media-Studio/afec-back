@@ -53,7 +53,8 @@ module.exports = {
     },
 
     authRequired: async function (req, res, next) {
-        console.log("auth required token sucess")
+        const cookies = req.cookies
+        console.log(cookies)
         next()
     }
 }
