@@ -25,7 +25,7 @@ module.exports = {
             //Validar el password
             if (bcrypt.compareSync(req.body.password, usuario.password)) {
                 //Password valido , genero token
-                const token = jwt.sign({ usuario: usuario }, 'secretKey', { expiresIn: '1h' })
+                const token = jwt.sign({ usuario: usuario },req.app.get('secretKey'), { expiresIn: '1h' })
                 res.status(201).cookie('token', token)
                 res.json(token)
 
@@ -55,6 +55,16 @@ module.exports = {
     authRequired: async function (req, res, next) {
         const {token} = req.cookies
         if (!token) return res.status(401).json({message: "no token"})
+
+        jwt.verify(token, req.app.get('secretKey'),function(err,decoded){
+            if(err){
+              res.json({message:err.message})
+            }else{
+              console.log(decoded)
+              req.body.userToken = decoded
+              next();
+            }
+          })
         next()
     }
 }
