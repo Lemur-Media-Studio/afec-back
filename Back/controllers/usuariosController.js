@@ -26,9 +26,7 @@ module.exports = {
             if(bcrypt.compareSync(req.body.password,usuario.password)){
                 //Password valido , genero token
                 const token = jwt.sign({usuario:usuario},req.app.get('secretKey'),{expiresIn:'1h'})
-                res.status(201).json({token:token}).cookie("token", token)
-           
-
+                res.status(201).json({token:token})
 
             }else{
                 //Password invalido
@@ -41,14 +39,5 @@ module.exports = {
 
         
         
-    }, 
-    logout: async function(req,res,next){
-        res.cookie("token", "",{expires: new Date(0)})
-        return res.status(200)
-        
-
-    },
-    profile: async function(req,res, next){
-        res.send('profile')
-    }
+    }    
 }
