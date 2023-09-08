@@ -1,24 +1,8 @@
 var answerC1Model = require("../models/answerC1Model")
-//require multer for the file uploads
-var multer = require('multer');
-// set the directory for the uploads to the uploaded to
-var DIR = './public/images/';
-//define the type of upload multer would be doing and pass in its destination, in our case, its a single file with the name photo
-var upload = multer({dest: DIR}).single('photo');
+
 
 module.exports = {
-    getAll: async function(req, res, next) {
-        /*let productos = await productosModel.paginate({},{
-            populate:'category',
-            limit:2,
-            sort:{name:1},
-            page:(req.query.page?req.query.page:1)
-        })*/
-        let productos = await productosModel.find()
-        .populate('category')
-        console.log(productos)
-        res.status(200).json({data:productos})
-      },
+
 
     getById: async function(req, res, next) {
         console.log(req.params.id)
