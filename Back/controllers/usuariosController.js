@@ -66,10 +66,9 @@ module.exports = {
     },
 
     profile: async function (req, res, next) {
-        console.log(req.body.usuario)
-        /*
+    
 
-        const userFound = await mainModel.findById(req.decoded.id)
+        const userFound = await mainModel.findById(req.body.usuario._id)
         if (!userFound) return res.status(400).json({message:"user not found"})
 
         return res.json({
@@ -79,7 +78,7 @@ module.exports = {
             user:userFound.user,
             password: userFound.password
         })
-        */
+        
     }
 
 }
