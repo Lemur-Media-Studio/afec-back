@@ -56,7 +56,7 @@ module.exports = {
             if(err){
               res.json({message:err.message})
             }else{
-              console.log(decoded)
+              //console.log(decoded)
               req.body = decoded
             
             }
@@ -66,7 +66,7 @@ module.exports = {
     },
 
     profile: async function (req, res, next) {
-        console.log(req)
+        console.log(req.body.usuario)
         /*
 
         const userFound = await mainModel.findById(req.decoded.id)
