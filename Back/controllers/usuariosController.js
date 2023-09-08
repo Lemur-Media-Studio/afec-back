@@ -3,80 +3,38 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-
-    create: async function (req, res, next) {
+    
+    create: async function(req, res, next) {
         //lANZAR EXCEPCIONES
-        try {
-            let data = await mainModel.create({ name: req.body.name, surname: req.body.surname, user: req.body.user, password: req.body.password })
+        try{
+            let data = await mainModel.create({name:req.body.name,user:req.body.user,password:req.body.password})
 
             res.status(201).json(data)
-        } catch (e) {
-
+        }catch(e){
+        
             console.log(e)
             next(e)
         }
     },
-    login: async function (req, res, next) {
+    login: async function(req, res, next) {
         //Consulto por usuario
-        let usuario = await mainModel.findOne({ user: req.body.user })
-
-
-        if (usuario) {
+        let usuario = await mainModel.findOne({user:req.body.user})
+        if(usuario){
             //Validar el password
-            if (bcrypt.compareSync(req.body.password, usuario.password)) {
+            if(bcrypt.compareSync(req.body.password,usuario.password)){
                 //Password valido , genero token
-                const token = jwt.sign({ usuario: usuario },req.app.get('secretKey'), { expiresIn: '1h' })
-                res.status(201).cookie('token', token)
-                res.json(token)
-
-            } else {
+                const token = jwt.sign({usuario:usuario},req.app.get('secretKey'),{expiresIn:'1h'})
+                res.status(201).json({token:token})
+            }else{
                 //Password invalido
-                res.json({ message: "Password incorrecto", data: null })
+                res.json({message:"Password incorrecto",data:null})
             }
-        } else {
+        }else{
             //Arrojar error
-            res.json({ message: "Usuario no existe", data: null })
+            res.json({message:"Usuario no existe",data:null})
         }
 
-
-
-    },
-
-    logout: async function (req, res, next) {
-        res.cookie("token", "", { expires: new Date(0), });
-        return res.sendStatus(200)
-
-    },
-
-    authRequired: async function (req, res, next) {
-        //console.log(req.app.get('secretKey'))
         
-        jwt.verify(req.headers['x-access-token'],req.app.get('secretKey'),function(err,decoded){
-          if(err){
-            res.json({message:err.message})
-          }else{
-            console.log(decoded)
-            req.body.userToken = decoded
-            next();
-          }
-        })
         
-      },
-
-    profile: async function (req, res, next) {
-    
-
-        const userFound = await mainModel.findById(req.body.usuario._id)
-        if (!userFound) return res.status(400).json({message:"user not found"})
-
-        return res.json({
-            id: userFound._id,
-            name:userFound.name,
-            surname:userFound.surname,
-            user:userFound.user,
-            password: userFound.password
-        })
-        
-    }
-
+    }    
 }
