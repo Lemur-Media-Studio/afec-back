@@ -1,7 +1,7 @@
 const mongoose = require('../bin/mongodb')
 const Schema = mongoose.Schema;
 
-const MainSchema = new Schema({
+const MainSchemaC1 = new Schema({
     id:{
         type: String,
         index: true,
@@ -65,4 +65,4 @@ const MainSchema = new Schema({
 
 MainSchema.set('toJSON',{getters:true,virtuals:true})
 MainSchema.plugin(mongoose.mongoosePaginate)
-module.exports = mongoose.model('answers',MainSchema)
+module.exports = mongoose.model('answers',MainSchemaC1)
