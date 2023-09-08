@@ -10,7 +10,7 @@ module.exports = {
             page:(req.query.page?req.query.page:1)
         })*/
         let respuestas = await answerC1Model.find()
-        console.log(respuestas)
+
         res.status(200).json({data:respuestas})
       },
 
