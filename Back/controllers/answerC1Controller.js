@@ -1,5 +1,5 @@
 var productosModel = require("../models/productosModel")
-var categoriesModel = require("../models/categoriasModel")
+var answerC1Model = require("../models/answerC1Model")
 //require multer for the file uploads
 var multer = require('multer');
 // set the directory for the uploads to the uploaded to
