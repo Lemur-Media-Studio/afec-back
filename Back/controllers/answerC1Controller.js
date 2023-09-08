@@ -1,4 +1,3 @@
-var productosModel = require("../models/productosModel")
 var answerC1Model = require("../models/answerC1Model")
 //require multer for the file uploads
 var multer = require('multer');
@@ -23,7 +22,7 @@ module.exports = {
 
     getById: async function(req, res, next) {
         console.log(req.params.id)
-        let productos = await productosModel.findById(req.params.id)
+        let productos = await answerC1Model.findById(req.params.id)
         console.log(productos)
         res.status(200).json(productos)
     },
