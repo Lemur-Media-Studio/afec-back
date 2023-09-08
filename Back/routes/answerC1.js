@@ -1,15 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-var productosController = require("../controllers/productosController")
+var answerC1Controller = require("../controllers/answerC1Controller")
 
 /* GET home page. */
-//router.get('/', (req,res,next)=>{req.app.validateUser(req,res,next)},productosController.getAll);
+//router.get('/', (req,res,next)=>{req.app.validateUser(req,res,next)},answerC1Controller.getAll);
 
-//router.get('/', (req,res,next)=>{req.app.validateUser(req,res,next)},productosController.getAll);
-router.get('/', productosController.getAll);
-router.get('/:id',(req,res,next)=>{req.app.validateUser(req,res,next)}, productosController.getById);
-router.post('/', productosController.create);
+//router.get('/', (req,res,next)=>{req.app.validateUser(req,res,next)},answerC1Controller.getAll);
+router.get('/respuestas', answerC1Controller.getAll);
+router.get('/respuestas/:id',(req,res,next)=>{req.app.validateUser(req,res,next)}, answerC1Controller.getById);
+router.post('/respuestas', answerC1Controller.create);
 
 
 module.exports = router;

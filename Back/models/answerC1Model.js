@@ -59,6 +59,8 @@ const MainSchema = new Schema({
     },
 
 
+}, {
+    timestamps: true
 })
 
 MainSchema.set('toJSON',{getters:true,virtuals:true})
