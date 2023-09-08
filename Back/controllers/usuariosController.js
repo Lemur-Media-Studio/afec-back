@@ -57,7 +57,7 @@ module.exports = {
               res.json({message:err.message})
             }else{
               console.log(decoded)
-              req.body.userToken = decoded
+              req.body = decoded
               next();
             }
           })
@@ -65,7 +65,7 @@ module.exports = {
     },
 
     profile: async function async (req, res, next) {
-        const userFound = await mainModel.findById(req.decode._id)
+        const userFound = await mainModel.findById(req.decode.id)
         if (!userFound) return res.status(400).json({message:"user not found"})
 
         return res.json({
