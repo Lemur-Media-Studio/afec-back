@@ -28,6 +28,7 @@ module.exports = {
                     .json({
                         name: usuario.name,
                         user: usuario.user,
+                        user: usuario._id,
                     })
 
 
