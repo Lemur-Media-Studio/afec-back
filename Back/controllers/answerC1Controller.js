@@ -2,6 +2,17 @@ var answerC1Model = require("../models/answerC1Model")
 
 
 module.exports = {
+    getAll: async function(req, res, next) {
+        /*let productos = await productosModel.paginate({},{
+            populate:'category',
+            limit:2,
+            sort:{name:1},
+            page:(req.query.page?req.query.page:1)
+        })*/
+        let respuestas = await answerC1Model
+        console.log(respuestas)
+        res.status(200).json({data:respuestas})
+      },
 
 
     getById: async function(req, res, next) {
