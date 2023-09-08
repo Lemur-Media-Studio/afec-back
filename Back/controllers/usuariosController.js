@@ -52,7 +52,7 @@ module.exports = {
         const {token} = req.cookies
         if (!token) return res.status(401).json({message: "no token"})
 
-        jwt.verify(token, req.app.get('secretKey'),function(err,decoded){
+        jwt.verify(token,req.headers['x-access-token'], req.app.get('secretKey'),function(err,decoded){
             if(err){
               res.json({message:err.message})
             }else{
