@@ -16,8 +16,8 @@ module.exports = {
             page:(req.query.page?req.query.page:1)
         })*/
         let productos = await productosModel.find()
-        .populate('category')
-        console.log(productos)
+    
+        //console.log(productos)
         res.status(200).json({data:productos})
       },
       getByCategoria: async function(req, res, next) {

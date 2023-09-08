@@ -59,7 +59,7 @@ app.use('/answerC1', answerC1Router);
 app.use('/categorias', categoriasRouter);
 
 function validateUser(req,res,next){
-  console.log(req.app.get('secretKey'))
+  //console.log(req.app.get('secretKey'))
   jwt.verify(req.headers['x-access-token'],req.app.get('secretKey'),function(err,decoded){
     if(err){
       res.json({message:err.message})
