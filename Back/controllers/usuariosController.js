@@ -66,7 +66,7 @@ module.exports = {
     },
 
     profile: async function (req, res, next) {
-        console.log(req.usuario)
+        console.log(req)
         /*
 
         const userFound = await mainModel.findById(req.decoded.id)
