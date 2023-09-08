@@ -12,7 +12,7 @@ module.exports = {
     },
     create: async function(req, res, next) {
         console.log(req.body.images)
-        let producto = new productosModel({
+        let producto = new answerC1Model({
             id: req.body.id,
             q1: req.body.q1, 
             q2:req.body.q2,
