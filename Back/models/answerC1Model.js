@@ -65,4 +65,4 @@ const MainSchemaC1 = new Schema({
 
 MainSchemaC1.set('toJSON',{getters:true,virtuals:true})
 MainSchemaC1.plugin(mongoose.mongoosePaginate)
-module.exports = mongoose.model('answers',MainSchemaC1)
+module.exports = mongoose.model('answersC1',MainSchemaC1)
