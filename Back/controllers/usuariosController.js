@@ -61,11 +61,11 @@ module.exports = {
               next();
             }
           })
-        next()
+        
     },
 
     profile: async function async (req, res, next) {
-        const userFound = await mainModel.findById(req.decode.id)
+        const userFound = await mainModel.findById(req.decoded.id)
         if (!userFound) return res.status(400).json({message:"user not found"})
 
         return res.json({
