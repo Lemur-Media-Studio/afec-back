@@ -49,21 +49,19 @@ module.exports = {
     },
 
     authRequired: async function (req, res, next) {
-        const {token} = req.cookies
-        if (!token) return res.status(401).json({message: "no token"})
-
-        jwt.verify(token,req.headers['x-access-token'], req.app.get('secretKey'),function(err,decoded){
-            if(err){
-              res.json({message:err.message})
-            }else{
-              //console.log(decoded)
-              req.body = decoded
-            
-            }
-          })
-          next();
-        
-    },
+        console.log(req.app.get('secretKey'))
+        /*
+        jwt.verify(req.headers['x-access-token'],req.app.get('secretKey'),function(err,decoded){
+          if(err){
+            res.json({message:err.message})
+          }else{
+            console.log(decoded)
+            req.body.userToken = decoded
+            next();
+          }
+        })
+        */
+      },
 
     profile: async function (req, res, next) {
     
