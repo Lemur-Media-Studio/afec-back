@@ -10,7 +10,7 @@ router.post('/upload', etiquetasController.upload);
 router.get('/', etiquetasController.getAll);
 router.get('/destacados', etiquetasController.getDestados);
 router.get('/categoria/:id', etiquetasController.getByCategoria);
-router.get('/:id',(req,res,next)=>{req.app.validateUser(req,res,next)}, etiquetasController.getById);
+router.get('/:id', etiquetasController.getById);
 router.post('/', etiquetasController.create);
 router.put('/:id', etiquetasController.update);
 router.delete('/:id', etiquetasController.delete);
