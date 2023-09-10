@@ -13,6 +13,7 @@ var usuariosRouter = require('./routes/usuarios');
 var ventasRouter = require('./routes/ventas');
 var etiquetasRouter = require('./routes/etiquetas')
 var answerC1Router = require('./routes/answerC1')
+var answerC2Router = require('./routes/answerC2')
 
 //2- require del router
 var categoriasRouter = require('./routes/categorias');
@@ -54,6 +55,7 @@ app.use('/answers',productosRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/ventas', ventasRouter);
 app.use('/answerC1', answerC1Router);
+app.use('/answerC2', answerC2Router);
 
 //1- agregar el app user
 app.use('/categorias', categoriasRouter);
