@@ -1,5 +1,4 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express').Router();
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 
@@ -19,3 +18,6 @@ router.post("/payment", (req, res) => {
 
     });
 });
+
+
+module.exports = router;
