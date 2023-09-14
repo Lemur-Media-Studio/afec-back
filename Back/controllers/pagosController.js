@@ -33,7 +33,7 @@ module.exports = {
 
                 })
 
-                let data = await pago.save();
+                let data = pago.save();
                 res.status(201).json({ "stauts": "ok", "data": data })
             }
         })
