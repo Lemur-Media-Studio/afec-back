@@ -1,5 +1,5 @@
 var pagosModel = require("../models/pagosModel")
-const stripe = require("stripe")(process.env.STRIPE_KEY);
+
 
 module.exports = {
     getAll: async function(req, res, next) {
@@ -17,7 +17,7 @@ module.exports = {
     },
     create: async function(req, res, next) {
         console.log(req.body.images)
-        let pago = new pagosModel.stripe.charges.create({
+        let pago = new pagosModel({
             id: req.body.id,
         })
         let data = await pago.save();
