@@ -27,14 +27,6 @@ module.exports = {
                 res.status(500).json(stripeErr);
             } else {
                 res.status(200).json(stripeRes);
-                let pago = new pagosModel({
-                    source: req.body.tokenId,
-                    amount: req.body.amount,
-
-                })
-
-                let data = pago.save();
-                res.status(201).json({ "stauts": "ok", "data": data })
             }
         })
 
