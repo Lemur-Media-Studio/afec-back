@@ -2,11 +2,17 @@ const mongoose = require('../bin/mongodb')
 const Schema = mongoose.Schema;
 
 const MainSchema = new Schema({
-    id:{
+    source:{
         type: String,
         index: true,
         trim: true
     },
+    amount:{
+        type: String,
+        index: true,
+        trim: true
+    }
+    
 
 
 
