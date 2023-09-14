@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const jwt = require('jsonwebtoken');
+const cors = require('cors')
 require('dotenv').config()
 
 var indexRouter = require('./routes/index');
@@ -15,6 +16,7 @@ var etiquetasRouter = require('./routes/etiquetas')
 var answerC1Router = require('./routes/answerC1')
 var answerC2Router = require('./routes/answerC2')
 var stripe = require('./routes/stripe')
+
 
 //2- require del router
 var categoriasRouter = require('./routes/categorias');
@@ -94,5 +96,10 @@ app.use(function(err, req, res, next) {
   res.json({code:err.code,msg:err.message});
   //res.render('error');
 });
+
+app.post('/api/checkout', (req,res) => {
+  console.log(req.body)
+  res.send('recibido')
+})
 
 module.exports = app;
