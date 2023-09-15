@@ -6,6 +6,7 @@ router.post("/payment", (req, res) => {
     {
       source: req.body.tokenId,
       amount: req.body.amount,
+      email:  req.body.billing_details.email,
       currency: "usd"
  
 
