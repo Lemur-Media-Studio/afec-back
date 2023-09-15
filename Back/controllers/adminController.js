@@ -13,8 +13,8 @@ module.exports = {
     },
 
     delete: async function (req, res, next) {
-        //let data = await etiquetasModel.findByIdAndUpdate(req.params.id,req.body)
-        let data = await etiquetasModel.deleteOne({ _id: req.params.id });
+        //let data = await usuariosModel.findByIdAndUpdate(req.params.id,req.body)
+        let data = await usuariosModel.deleteOne({ _id: req.params.id });
         res.status(201).json({ "stauts": "ok", "data": data })
     },
 
