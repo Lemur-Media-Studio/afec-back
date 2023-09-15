@@ -29,7 +29,7 @@ var categoriasRouter = require('./routes/categorias');
 
 var app = express();
 
-app.set('secretKey',process.env.SECRET_KEY)
+app.set('secretKey', process.env.SECRET_KEY)
 
 // view engine setup
 app.use(cors());
@@ -44,13 +44,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 /** HEADER INICIO */
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin','*');
-  res.setHeader('Access-Control-Allow-Methods','GET,POST,DELETE,PUT');
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,DELETE,PUT');
   next();
 });
-app.options("/*", function(req, res, next){
-  
+app.options("/*", function (req, res, next) {
+
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With,x-access-token');
@@ -61,8 +61,8 @@ app.options("/*", function(req, res, next){
 
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/etiquetas',etiquetasRouter);
-app.use('/answers',productosRouter);
+app.use('/etiquetas', etiquetasRouter);
+app.use('/answers', productosRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/ventas', ventasRouter);
 app.use('/answerC1', answerC1Router);
@@ -73,12 +73,12 @@ app.use('/answerC2', answerC2Router);
 //1- agregar el app user
 app.use('/categorias', categoriasRouter);
 
-function validateUser(req,res,next){
+function validateUser(req, res, next) {
   //console.log(req.app.get('secretKey'))
-  jwt.verify(req.headers['x-access-token'],req.app.get('secretKey'),function(err,decoded){
-    if(err){
-      res.json({message:err.message})
-    }else{
+  jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function (err, decoded) {
+    if (err) {
+      res.json({ message: err.message })
+    } else {
       console.log(decoded)
       req.body.userToken = decoded
       next();
@@ -88,24 +88,28 @@ function validateUser(req,res,next){
 //Set validateUser en app
 app.validateUser = validateUser;
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
-app.get("https://api.stripe.com/v1/invoiceitems"){
-  const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
+const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
+
+app.get("https://api.stripe.com/v1/invoiceitems", hola())
+function hola() {
+
 
   const invoiceItems = await stripe.invoiceItems.list({
     limit: 3,
   });
-  console.log(invoiceItems)
-  
+
 }
+
+
 
 
 /** ERROR HANDLER **/
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -113,7 +117,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   console.log(err)
-  res.json({code:err.code,msg:err.message});
+  res.json({ code: err.code, msg: err.message });
   //res.render('error');
 });
 
