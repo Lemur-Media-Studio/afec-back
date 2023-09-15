@@ -7,6 +7,8 @@ router.post("/payment", (req, res) => {
       source: req.body.tokenId,
       amount: req.body.amount,
       currency: "eur",
+      email:req.body.billing_details.email,
+      name:req.body.billing_details.email,
       receipt_email: req.body.email,
       description:"Subscription creation"
  
