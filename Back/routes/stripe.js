@@ -16,7 +16,7 @@ router.post("/payment", (req, res) => {
         res.status(500).json(stripeErr);
       } else {
         res.status(200).json(stripeRes);
-        let pago = new answerC1Model({
+        let pago = new pagoModel({
           data: stripeRes
       })
       let data = pago.save();
