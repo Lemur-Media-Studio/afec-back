@@ -13,7 +13,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productosRouter = require('./routes/productos');
 var usuariosRouter = require('./routes/usuarios');
-var ventasRouter = require('./routes/ventas');
 var etiquetasRouter = require('./routes/etiquetas')
 var answerC1Router = require('./routes/answerC1')
 var answerC2Router = require('./routes/answerC2')
@@ -66,7 +65,6 @@ app.use('/users', usersRouter);
 app.use('/etiquetas', etiquetasRouter);
 app.use('/answers', productosRouter);
 app.use('/usuarios', usuariosRouter);
-app.use('/ventas', ventasRouter);
 app.use('/answerC1', answerC1Router);
 app.use('/answerC2', answerC2Router);
 app.use('/stripe', stripeRouter);
