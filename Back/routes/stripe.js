@@ -15,8 +15,8 @@ router.post('/create-checkout-session', async (req, res) => {
       cancel_url: `https://afec.onrender.com/?canceled=true`,
     });
 
-    //res.redirect(303, session.url);
-    res.status(201).json({"stauts":"ok","data":session.url})
+    res.redirect(303, session.url);
+   
 
   });
 
