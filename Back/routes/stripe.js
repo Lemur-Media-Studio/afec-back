@@ -6,7 +6,7 @@ router.post('/create-checkout-session', async (req, res) => {
       line_items: [
         {
           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: '',
+          price: req.body.price,
           quantity: 1,
         },
       ],
