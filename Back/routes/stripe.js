@@ -6,13 +6,13 @@ router.post('/create-checkout-session', async (req, res) => {
       line_items: [
         {
           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: 'price_1NpwVkDCxZVJxL3fJNHGpzm2',
+          price: '',
           quantity: 1,
         },
       ],
       mode: 'subscription',
-      success_url: `https://afec.onrender.com/success`,
-      cancel_url: `https://afec.onrender.com/cancel`,
+      success_url: `https://afec.onrender.com/?success=true`,
+      cancel_url: `https://afec.onrender.com/?canceled=true`,
     });
 
     res.redirect(303, session.url);
