@@ -67,7 +67,7 @@ app.use('/usuarios', usuariosRouter);
 app.use('/ventas', ventasRouter);
 app.use('/answerC1', answerC1Router);
 app.use('/answerC2', answerC2Router);
-app.use("/", stripeRoute);
+app.use("/", stripeRouter);
 
 
 //1- agregar el app user
