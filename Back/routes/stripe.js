@@ -12,7 +12,7 @@ router.post('/create-checkout-session', async (req, res) => {
           quantity: 1,
         },
       ],
-      mode: 'payment',
+      mode: 'subscription',
       success_url: `https://afec.onrender.com/success`,
       cancel_url: `https://afec.onrender.com/cancel`,
     });
