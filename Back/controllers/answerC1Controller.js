@@ -22,7 +22,6 @@ module.exports = {
         res.status(200).json(productos)
     },
     create: async function(req, res, next) {
-        console.log(req.body.images)
         let producto = new answerC1Model({
             id: req.body.id,
             q1: req.body.q1, 
