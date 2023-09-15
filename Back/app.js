@@ -17,6 +17,7 @@ var ventasRouter = require('./routes/ventas');
 var etiquetasRouter = require('./routes/etiquetas')
 var answerC1Router = require('./routes/answerC1')
 var answerC2Router = require('./routes/answerC2')
+var stripeRouter = require('./routes/stripe')
 
 
 const cors = require("cors");
@@ -67,13 +68,9 @@ app.use('/usuarios', usuariosRouter);
 app.use('/ventas', ventasRouter);
 app.use('/answerC1', answerC1Router);
 app.use('/answerC2', answerC2Router);
+app.use('/', stripeRouter);
 
-const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
 
-const invoiceItems =  stripe.invoiceItems.list({
-  limit: 3,
-});
-console.log(invoiceItems)
 
 
 //1- agregar el app user
