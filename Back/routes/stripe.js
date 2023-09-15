@@ -16,7 +16,7 @@ router.post('/create-checkout-session', async (req, res) => {
     });
 
     res.redirect(303, session.url);
-    console.log(session)
+    res.json(session)
   });
 
   module.exports = router;
