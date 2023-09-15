@@ -9,6 +9,7 @@ var adminController = require("../controllers/adminController")
 //router.get('/', (req,res,next)=>{req.app.validateUser(req,res,next)},adminController.getAll);
 
 router.get('/usuarios',adminController.getAll);
+router.delete('/:id', adminController.delete);
 
 
 
