@@ -17,7 +17,7 @@ var ventasRouter = require('./routes/ventas');
 var etiquetasRouter = require('./routes/etiquetas')
 var answerC1Router = require('./routes/answerC1')
 var answerC2Router = require('./routes/answerC2')
-var answerC2Router = require('./routes/stripe')
+var stripeRouter = require('./routes/stripe')
 
 const cors = require("cors");
 
