@@ -11,7 +11,6 @@ require('dotenv').config()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var productosRouter = require('./routes/productos');
 var usuariosRouter = require('./routes/usuarios');
 var etiquetasRouter = require('./routes/etiquetas')
 var answerC1Router = require('./routes/answerC1')
@@ -63,7 +62,6 @@ app.options("/*", function (req, res, next) {
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/etiquetas', etiquetasRouter);
-app.use('/answers', productosRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/answerC1', answerC1Router);
 app.use('/answerC2', answerC2Router);
