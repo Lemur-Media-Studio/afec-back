@@ -96,12 +96,10 @@ const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0r
 
 app.get("https://api.stripe.com/v1/invoiceitems", hola())
 function hola() {
-
-
-  const invoiceItems = await stripe.invoiceItems.list({
+  const invoiceItems = stripe.invoiceItems.list({
     limit: 3,
   });
-
+  console.log(invoiceItems)
 }
 
 
