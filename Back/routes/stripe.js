@@ -3,6 +3,7 @@ const stripe = require("stripe")(process.env.STRIPE_KEY);
 var pagoModel = require("../models/pagoModel")
 
 router.post("/payment", (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
   stripe.charges.create(
     {
       source: req.body.tokenId,
