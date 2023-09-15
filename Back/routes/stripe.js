@@ -15,7 +15,7 @@ router.post('/create-checkout-session', async (req, res) => {
       cancel_url: `https://afec.onrender.com/pay?canceled=true`,
     });
 
-    res.status(201).json({"stauts":"ok","data":session})
+    res.status(201).json({"data":session.id})
 
    
 
