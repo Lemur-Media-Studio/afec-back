@@ -16,7 +16,7 @@ router.post('/create-checkout-session', async (req, res) => {
     });
 
     res.redirect(303, session.url);
-    res.json(session)
+    res.status(201).json({"stauts":"ok","data":session})
   });
 
   module.exports = router;
