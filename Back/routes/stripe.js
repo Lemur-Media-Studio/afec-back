@@ -11,8 +11,8 @@ router.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'subscription',
-      success_url: `http://localhost:3000?success=true`,
-      cancel_url: `http://localhost:3000?canceled=true`,
+      success_url: `http://localhost:3000/pay?success=true`,
+      cancel_url: `http://localhost:3000/pay?canceled=true`,
     });
 
     res.redirect(303, session.url);
