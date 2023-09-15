@@ -70,9 +70,10 @@ app.use('/answerC2', answerC2Router);
 
 const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
 
-const invoiceItems = await stripe.invoiceItems.list({
+const invoiceItems =  stripe.invoiceItems.list({
   limit: 3,
 });
+console.log(invoiceItems)
 
 
 //1- agregar el app user
