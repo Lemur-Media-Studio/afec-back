@@ -11,8 +11,8 @@ router.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'subscription',
-      success_url: `http://localhost:3000/pay?success=true`,
-      cancel_url: `http://localhost:3000/pay?canceled=true`,
+      success_url: `https://afec.onrender.com/pay?success=true`,
+      cancel_url: `https://afec.onrender.com/pay?canceled=true`,
     });
 
     res.redirect(303, session.url);
