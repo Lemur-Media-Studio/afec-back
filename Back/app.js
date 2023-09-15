@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const jwt = require('jsonwebtoken');
 
+
+
 require('dotenv').config()
 
 var indexRouter = require('./routes/index');
@@ -15,7 +17,8 @@ var ventasRouter = require('./routes/ventas');
 var etiquetasRouter = require('./routes/etiquetas')
 var answerC1Router = require('./routes/answerC1')
 var answerC2Router = require('./routes/answerC2')
-const stripeRoute = require("./routes/stripe");
+var answerC2Router = require('./routes/stripe')
+
 const cors = require("cors");
 
 
@@ -64,7 +67,7 @@ app.use('/usuarios', usuariosRouter);
 app.use('/ventas', ventasRouter);
 app.use('/answerC1', answerC1Router);
 app.use('/answerC2', answerC2Router);
-app.use("/checkout", stripeRoute);
+app.use("/", stripeRoute);
 
 
 //1- agregar el app user

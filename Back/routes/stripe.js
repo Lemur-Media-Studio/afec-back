@@ -1,32 +1,19 @@
-const router = require("express").Router();
-const stripe = require("stripe")(process.env.STRIPE_KEY);
-var pagoModel = require("../models/pagoModel")
+const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
 
-router.post("/payment", (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  stripe.charges.create(
-    {
-      source: req.body.tokenId,
-      amount: req.body.amount,
-      currency: "eur",
-      receipt_email: req.body.email,
-      description:req.body.description
-    },
-    (stripeErr, stripeRes) => {
-      if (stripeErr) {
-        res.status(500).json(stripeErr);
-      } else {
-        res.status(200).json(stripeRes);
-        let pago = new pagoModel({
-          data: stripeRes
-      })
-      let data = pago.save();
-      res.status(201).json({"stauts":"ok","data":data})
-
-        
-      }
-    }
-  );
-});
-
-module.exports = router;
+app.post('/create-checkout-session', async (req, res) => {
+    const session = await stripe.checkout.sessions.create({
+      line_items: [
+        {
+          // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+          price: 'price_1NpwVkDCxZVJxL3fJNHGpzm2',
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: `/success=true`,
+      cancel_url: `/canceled=true`,
+    });
+  
+    res.redirect(303, session.url);
+  });
+  
