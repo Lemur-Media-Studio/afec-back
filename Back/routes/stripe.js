@@ -3,7 +3,7 @@ var router = express.Router();
 const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
 
 
-router.get('/create-checkout-session', async (req, res) => {
+router.get('/v1/invoiceitems', async (req, res) => {
     /*
     const session = await stripe.checkout.sessions.create({
         line_items: [
@@ -19,7 +19,9 @@ router.get('/create-checkout-session', async (req, res) => {
     });
 
 */
-    const invoiceItems = await stripe.invoiceItems.list();
+    const invoiceItems = await stripe.invoiceItems.list({
+        limit: 3,
+    });
     console.log(invoiceItems)
 
 
