@@ -68,6 +68,11 @@ app.use('/ventas', ventasRouter);
 app.use('/answerC1', answerC1Router);
 app.use('/answerC2', answerC2Router);
 
+const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
+
+const invoiceItems = await stripe.invoiceItems.list({
+  limit: 3,
+});
 
 
 //1- agregar el app user
@@ -91,16 +96,6 @@ app.validateUser = validateUser;
 app.use(function (req, res, next) {
   next(createError(404));
 });
-
-const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
-
-app.get("https://api.stripe.com/v1/invoiceitems", hola())
-function hola() {
-  const invoiceItems = stripe.invoiceItems.list({
-    limit: 3,
-  });
-  console.log(invoiceItems)
-}
 
 
 
