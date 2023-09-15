@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 
-app.post('/check', async (req, res) => {
+router.post('/check', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
