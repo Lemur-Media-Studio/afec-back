@@ -5,21 +5,27 @@ const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0r
 
 router.post('/create-checkout-session', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
-      line_items: [
-        {
-          // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: 'price_1NpwVkDCxZVJxL3fJNHGpzm2',
-          quantity: 1,
-        },
-      ],
-      mode: 'subscription',
-      success_url: `https://afec.onrender.com/success`,
-      cancel_url: `https://afec.onrender.com/cancel`,
+        line_items: [
+            {
+                // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                price: 'price_1NpwVkDCxZVJxL3fJNHGpzm2',
+                quantity: 1,
+            },
+        ],
+        mode: 'subscription',
+        success_url: `https://afec.onrender.com/success`,
+        cancel_url: `https://afec.onrender.com/cancel`,
     });
-  
-    res.redirect(303, session.url);
-    console.log(session)
-  });
 
-  module.exports = router;
-  
+
+    const invoiceItems = await stripe.invoiceItems.list({
+        limit: 3,
+    });
+    console.log(invoiceItems)
+
+
+    res.redirect(303, session.url);
+    //console.log(session)
+});
+
+module.exports = router;
