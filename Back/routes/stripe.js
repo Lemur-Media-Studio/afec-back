@@ -3,7 +3,8 @@ var router = express.Router();
 const stripe = require('stripe')('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
 
 
-router.post('/create-checkout-session', async (req, res) => {
+router.get('/create-checkout-session', async (req, res) => {
+    /*
     const session = await stripe.checkout.sessions.create({
         line_items: [
             {
@@ -17,14 +18,12 @@ router.post('/create-checkout-session', async (req, res) => {
         cancel_url: `https://afec.onrender.com/cancel`,
     });
 
-
-    const invoiceItems = await stripe.invoiceItems.list({
-        limit: 3,
-    });
+*/
+    const invoiceItems = await stripe.invoiceItems.list();
     console.log(invoiceItems)
 
 
-    res.redirect(303, session.url);
+ 
     //console.log(session)
 });
 
