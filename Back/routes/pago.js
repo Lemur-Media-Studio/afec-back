@@ -10,6 +10,7 @@ var pagoController = require("../controllers/pagoController")
 
 router.post('/success',pagoController.create);
 router.get('/success',pagoController.getAll);
+router.post('/success/:id',pagoController.getAll);
 
 
 

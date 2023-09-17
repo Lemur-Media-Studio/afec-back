@@ -27,6 +27,11 @@ const MainSchema = new Schema({
         index: true,
         trim: true
     },
+    state:{
+        type: String,
+        index: true,
+        trim: true
+    },
 
 
 
