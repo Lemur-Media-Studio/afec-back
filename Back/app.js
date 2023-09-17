@@ -15,8 +15,10 @@ var usuariosRouter = require('./routes/usuarios');
 var etiquetasRouter = require('./routes/etiquetas')
 var answerC1Router = require('./routes/answerC1')
 var answerC2Router = require('./routes/answerC2')
-var stripeRouter = require('./routes/stripe')
 var adminRouter = require('./routes/admin')
+var pagoRouter = require('./routes/pago')
+
+
 
 
 const cors = require("cors");
@@ -65,8 +67,8 @@ app.use('/etiquetas', etiquetasRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/answerC1', answerC1Router);
 app.use('/answerC2', answerC2Router);
-app.use('/stripe', stripeRouter);
 app.use('/admin', adminRouter);
+app.use('/pago', pagoRouter)
 
 
 
