@@ -9,6 +9,7 @@ var pagoController = require("../controllers/pagoController")
 //router.get('/', (req,res,next)=>{req.app.validateUser(req,res,next)},pagoController.getAll);
 
 router.post('/success',pagoController.create);
+router.get('/success',pagoController.getAll);
 
 
 
