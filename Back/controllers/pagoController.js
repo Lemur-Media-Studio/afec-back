@@ -26,7 +26,7 @@ module.exports = {
     },
     update: async function(req, res, next) {
         //let data = await etiquetasModel.findByIdAndUpdate(req.params.id,req.body)
-        let data = await pagoModel.update({ _id: req.params.state}, req.body, { multi: false })
+        let data = await pagoModel.update({ _id: req.params.id}, req.body, { multi: false })
         res.status(201).json({"stauts":"ok","data":data})
     },
     delete: async function (req, res, next) {
