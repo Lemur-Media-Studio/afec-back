@@ -8,7 +8,7 @@ module.exports = {
 
         try {
             let pago = await pagoModel.create({ id: req.body.id, idPrice: req.body.idPrice, idSub: req.body.idSub, 
-                refUser: req.body.refUser, linkIn: req.body.linkIn, state:req.body.state })
+                refUser: req.body.refUser, linkIn: req.body.linkIn, state:req.body.state, idInvoice: req.body.idInvoice })
 
             res.status(201).json(pago)
         } catch (e) {

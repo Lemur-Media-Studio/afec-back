@@ -32,6 +32,11 @@ const MainSchema = new Schema({
         index: true,
         trim: true
     },
+    idInvoice:{
+        type: String,
+        index: true,
+        trim: true
+    },
 
 
 
