@@ -10,6 +10,9 @@ var adminController = require("../controllers/adminController")
 
 router.get('/usuarios',adminController.getAll);
 router.delete('/:id', adminController.delete);
+router.get('/answerC1',adminController.getAllAnswerC2);
+router.get('/answerC2',adminController.getAllAnswerC1);
+router.get('/pagos',adminController.getAllPagos);
 
 
 
